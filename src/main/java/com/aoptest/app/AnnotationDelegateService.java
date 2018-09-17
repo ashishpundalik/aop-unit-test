@@ -4,7 +4,7 @@ import com.aoptest.app.customannotations.MethodTimeLogger;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FooService {
+public class AnnotationDelegateService {
 
     @MethodTimeLogger
     public void performActionWithALag() throws InterruptedException {

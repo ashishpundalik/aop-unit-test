@@ -4,22 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
-@Profile("!test")
-public class AOPUnitTesting implements CommandLineRunner {
+public class AOPTesting implements CommandLineRunner {
 
     @Autowired
-    private FooService fooService;
+    private AnnotationDelegateService annotationDelegateService;
 
     public static void main(String[] args) throws InterruptedException {
-        SpringApplication.run(AOPUnitTesting.class, args);
+        SpringApplication.run(AOPTesting.class, args);
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-        fooService.performActionWithALag();
+        annotationDelegateService.performActionWithALag();
     }
 }

@@ -1,17 +1,11 @@
 package com.aoptest.app.customannotations;
 
 
-import com.aoptest.app.AOPUnitTesting;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.reflect.MethodSignature;
-import org.junit.Before;
+import com.aoptest.app.AOPTesting;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -26,15 +20,13 @@ import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Method;
 
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.powermock.api.mockito.PowerMockito.*;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockRunnerDelegate(SpringRunner.class)
 @PowerMockIgnore({"javax.management.*", "javax.script.*"})
 @PrepareForTest({MethodTimeLoggerAspect.class, LoggerFactory.class})
-@ContextConfiguration(classes = AOPUnitTesting.class,
+@ContextConfiguration(classes = AOPTesting.class,
         initializers = ConfigFileApplicationContextInitializer.class)
 public class AspectTestStrategyIntegration {
 
